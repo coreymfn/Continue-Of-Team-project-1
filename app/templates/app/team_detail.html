@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h1>{{ team.name }} Team</h1>
+
+    <p>{{ team.description }}</p>
+
+    <h2>Team Members</h2>
+
+    <ul>
+        {% for member in team.members %}
+            <li>{{ member }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'team_list' %}">Back to Teams</a>
+{% endblock %}

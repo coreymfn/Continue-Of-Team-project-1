@@ -17,11 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.team_list, name='team_list'),
-    path('procurement/', views.procurement, name='procurement'),
-    path('management/', views.management, name='management'),
-    path('community/', views.community, name='community'),
-    path('documentation/', views.documentation, name='documentation'),
+    path('teams/<slug:team_key>/', views.team_detail, name='team_detail'),
 ]

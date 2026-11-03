@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCCA Leadership Teams</title>
-</head>
-<body>
+{% extends 'app/base.html' %}
+
+{% block content %}
     <h1>BCCA Leadership Project Teams</h1>
 
     <ul>
-        {% for team in teams %}
+        {% for team_key, team in teams.items %}
             <li>
-                <a href="/{{ team|lower }}/">{{ team }}</a>
+                <a href="{% url 'team_detail' team_key %}">
+                    {{ team.name }}
+                </a>
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
